@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Cockies con JS</h1>
+
+	<script>
+		/*function createCookie (nombre, valor) {
+			valor = escape(valor);
+			var hour = new Date();
+			hour.setMonth(hour.getMonth() + 1);
+			document.cookie = nombre+"="+ valor +";expire=" + hour.toUTCString()+";";
+		}
+
+		function deleteCookie(nombre) {
+			var hour = new Date();
+			hour.setMonth(hour.getMonth() - 1);
+			document.cookie = nombre+"=x;expire=" + hour.toUTCString()+";";
+		}
+
+		function getCookie(nombre) {
+			var cookie = document.cookie;
+
+			var cookieArr = cookie.split("; ");
+			console.log(cookieArr);
+
+			for (var i = 0; i < cookieArr.length; i++) {
+				var parArr = cookieArr[i].split("=");
+				cookieArr[i] = parArr;
+
+				if (parArr[0] === nombre) {
+					return unescape(parArr[1]);
+				} 
+			}
+			console.log(cookieArr);
+
+			return undefined;
+		}
+
+		console.log(getCookie("direccion"));*/
+
+		var car = {
+			color:"azul",
+			marca:"Ferrary",
+			printer:function(){
+				 var salida = this.marca + " - " + this.color;
+				 return salida;
+			}
+		}
+
+		var carroTwo = {
+			color: "Rojo",
+			marca: "Mazda"
+		}
+
+		console.log(car.printer());
+
+		var logCar = function(arg1, arg2) {
+			console.log("Car: ", this.printer());
+			console.log("Argumentos: ", arg1, arg2);
+			console.log("============================")
+		}
+		var logModelCar = logCar.bind(car);
+		logModelCar("abc","xyz");
+
+
+		logModelCar.call(car, "123", "456");
+		logModelCar.apply(car, ["cas", "sdc"]);
+		logModelCar.call(car, "123", "456");
+
+		console.log(car.printer.call(carroTwo));
+	</script>
+</body>
+</html>
